@@ -22,6 +22,21 @@ app.get('/user', async(req, res) => {
   }
 })
 
+app.get('/repos', async(req, res) => {
+  const url = baseUrl + req.query.username + "/repos";
+
+  try {
+    const response = await axios({
+      url: url,
+      method: 'get',
+    })
+
+    res.status(200).json(response.data);
+  } catch(err) {
+    res.status(500).json({message: err});
+  }
+})
+
 app.listen(5000, () => {
   console.log(`Listening on port 5000!`);
 })
