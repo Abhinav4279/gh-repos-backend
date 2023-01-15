@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require("axios");
 
-const baseUrl = 'https://api.github.com/users/';
+const baseUrl = process.env.BASE_URL;
 
 const app = express();
 
