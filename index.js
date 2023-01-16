@@ -8,7 +8,6 @@ const baseUrl = process.env.BASE_URL;
 const app = express();
 app.use(cors());
 
-
 app.get('/user', async(req, res) => {
   const url = baseUrl + req.query.username;
   try {
@@ -18,8 +17,8 @@ app.get('/user', async(req, res) => {
     })
 
     //name, avatar_url, location, bio, twitter, blog
-    const {name, avatar_url, location, bio, twitter, blog} = response.data;
-    res.status(200).json({name, avatar_url, location, bio, twitter, blog});
+    const {name, avatar_url, location, bio, twitter, blog, html_url} = response.data;
+    res.status(200).json({name, avatar_url, location, bio, twitter, blog, html_url});
   } catch(err) {
     res.status(500).json({message: err});
   }
@@ -34,14 +33,13 @@ app.get('/repos', async(req, res) => {
       method: 'get',
     })
     
-    //name, description, language
+    // name, description, language, html_url 
     const arr = response.data;
     const ret = arr.map((repo) => {
-      const {name, description, language} = repo;
-      return {name, description, language};
+      const {name, description, language, html_url} = repo;
+      return {name, description, language, html_url};
     })
 
-    console.log(ret);
     res.status(200).json(ret);
   } catch(err) {
     res.status(500).json({message: err});
