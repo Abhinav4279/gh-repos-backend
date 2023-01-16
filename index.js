@@ -1,13 +1,16 @@
 const express = require('express');
 const axios = require("axios");
+const cors = require('cors');
+require('dotenv').config();
 
 const baseUrl = process.env.BASE_URL;
 
 const app = express();
+app.use(cors());
+
 
 app.get('/user', async(req, res) => {
   const url = baseUrl + req.query.username;
-
   try {
     const response = await axios({
       url: url,
