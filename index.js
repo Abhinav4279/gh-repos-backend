@@ -33,8 +33,16 @@ app.get('/repos', async(req, res) => {
       url: url,
       method: 'get',
     })
+    
+    //name, description, language
+    const arr = response.data;
+    const ret = arr.map((repo) => {
+      const {name, description, language} = repo;
+      return {name, description, language};
+    })
 
-    res.status(200).json(response.data);
+    console.log(ret);
+    res.status(200).json(ret);
   } catch(err) {
     res.status(500).json({message: err});
   }
