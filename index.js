@@ -8,6 +8,14 @@ const baseUrl = process.env.BASE_URL;
 const app = express();
 app.use(cors());
 
+//todo: add / endpoint
+app.get('/', async(req, res) => {
+  const response = {"/user": {"params": "username"},
+                    "/repos": {"params": "username"}};
+
+  return res.status(200).json(response);
+})
+
 app.get('/user', async(req, res) => {
   const url = baseUrl + req.query.username;
   try {
