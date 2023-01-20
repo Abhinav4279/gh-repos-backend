@@ -28,7 +28,7 @@ app.get('/user', async(req, res) => {
     const {name, avatar_url, location, bio, twitter, blog, html_url} = response.data;
     res.status(200).json({name, avatar_url, location, bio, twitter, blog, html_url});
   } catch(err) {
-    res.status(500).json({message: err});
+    res.status(404).json({message: err});
   }
 })
 
@@ -50,10 +50,10 @@ app.get('/repos', async(req, res) => {
 
     res.status(200).json(ret);
   } catch(err) {
-    res.status(500).json({message: err});
+    res.status(404).json({message: err});
   }
 })
 
-app.listen(5000, () => {
+module.exports = app.listen(5000, () => {
   console.log(`Listening on port 5000!`);
 })
