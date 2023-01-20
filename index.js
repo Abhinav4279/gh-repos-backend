@@ -25,8 +25,8 @@ app.get('/user', async(req, res) => {
     })
 
     //name, avatar_url, location, bio, twitter, blog
-    const {name, avatar_url, location, bio, twitter, blog, html_url} = response.data;
-    res.status(200).json({name, avatar_url, location, bio, twitter, blog, html_url});
+    const {name, avatar_url, location, bio, twitter_username, blog, html_url} = response.data;
+    res.status(200).json({name, avatar_url, location, bio, twitter_username, blog, html_url});
   } catch(err) {
     res.status(404).json({message: err});
   }
