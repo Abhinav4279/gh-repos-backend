@@ -20,6 +20,10 @@ A express-node.js based REST API to fetch github user details and repository det
 - `npm run dev`
 -  add github _BASE\_URL_  in root directory in _.env_ file.
 
+### Testing
+
+- `npm test`
+
 ### GET Routes
 
 - visit http://localhost:5000 or https://gh-repos-backend.onrender.com/
