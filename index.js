@@ -3,7 +3,8 @@ const axios = require("axios");
 const cors = require('cors');
 require('dotenv').config();
 
-const baseUrl = process.env.BASE_URL;
+// const baseUrl = process.env.BASE_URL;
+const baseUrl = "https://api.github.com/users/";
 
 const app = express();
 app.use(cors());
